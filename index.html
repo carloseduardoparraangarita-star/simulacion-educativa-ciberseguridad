@@ -1,63 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Simulación educativa de ransomware</title>
 <style>
-    body {
+    :root{
+        --bg: #1e1e1e;
+        --card: #111;
+        --accent-red: #ff4040;
+        --accent-gold: #ffae00;
+        --warning-bg: #2b2b2b;
+        --disclaimer-bg: #063;
+    }
+
+    html, body {
+        height: 100%;
+        margin: 0;
         font-family: 'Segoe UI', Arial, sans-serif;
-        background-color: #1e1e1e;
+        background-color: var(--bg);
         color: #eaeaea;
         text-align: center;
-        padding: 40px;
+        -webkit-font-smoothing: antialiased;
     }
+
+    /* Imagen principal (calavera) */
+    .hero-image {
+        width: 100%;
+        max-width: 1100px;
+        height: 350px;
+        object-fit: cover;
+        display: block;
+        margin: 20px auto 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+    }
+
+    /* Contenedor con el texto */
     .container {
         max-width: 800px;
-        margin: auto;
-        background: #111;
+        margin: 100px auto 40px auto; /* 🔹 Empuja el texto hacia abajo */
+        background: var(--card);
         padding: 30px;
         border-radius: 10px;
-        box-shadow: 0 0 20px rgba(255,0,0,0.5);
+        box-shadow: 0 0 20px rgba(255,0,0,0.25);
     }
+
+    /* Títulos */
     h1 {
-        color: #ff4040;
+        color: var(--accent-red);
         font-size: 2.2em;
+        margin: 0 0 8px 0;
+        letter-spacing: 0.5px;
     }
     h2 {
-        color: #ffae00;
-        margin-top: 0.5em;
+        color: var(--accent-gold);
+        margin-top: 6px;
+        font-weight: 600;
     }
+
+    /* Bloque de advertencia */
     .warning {
-        background-color: #2b2b2b;
+        background-color: var(--warning-bg);
         border: 2px solid #ff0000;
         padding: 25px;
         margin: 25px 0;
         border-radius: 8px;
         font-family: monospace;
         text-align: left;
-        color: #ffae00;
+        color: var(--accent-gold);
     }
+
+    /* Bloque de aclaración */
     .disclaimer {
-        background-color: #063;
+        background-color: var(--disclaimer-bg);
         padding: 20px;
         border-radius: 8px;
         color: #fff;
         margin-top: 30px;
     }
-    img {
-        width: 100%;
-        border-radius: 8px;
-        margin-top: 15px;
-    }
 
-    /* 🔹 Posición de los logos */
+    /* 🔹 Estilos para los logos */
     .logo {
         position: fixed;
         width: 10%;
         min-width: 100px;
         z-index: 10;
-        opacity: 0.9;
+        opacity: 0.95;
+        transition: transform 0.2s ease;
+    }
+    .logo:hover {
+        transform: scale(1.05);
     }
     .logo-blueberry {
         top: 20px;
@@ -67,18 +100,32 @@
         bottom: 20px;
         left: 20px;
     }
+
+    /* Responsivo */
+    @media (max-width: 720px) {
+        .hero-image { height: 200px; }
+        .container { margin: 40px 12px; padding: 18px; }
+        h1 { font-size: 1.6rem; }
+        .logo { width: 18%; }
+    }
 </style>
 </head>
 <body>
 
-<!-- 🔹 Logos fijos -->
+<!-- 🔹 Logos visibles -->
 <img src="Logo BlueBerry.png" alt="Logo Blueberry" class="logo logo-blueberry">
 <img src="LogoSinFondo.png" alt="Logo MTG" class="logo logo-mtg">
 
+<!-- 🔹 Imagen principal (calavera) -->
+<img src="simulacion_educativa_ransomware.png" alt="Simulación educativa ransomware" class="hero-image">
+
+<!-- 🔹 Contenido principal -->
 <div class="container">
     <h1>⚠️ SIMULACIÓN EDUCATIVA ⚠️</h1>
     <h2>Este NO es un ataque real</h2>
+
     <p>Este ejemplo muestra cómo podría verse un mensaje tipo <strong>ransomware</strong> en un entorno real, con el propósito de <strong>educar y concientizar</strong> sobre ciberseguridad industrial.</p>
+
     <div class="warning">
         <h2>¡ATENCIÓN!</h2>
         <p>Sus archivos han sido ENCRIPTADOS.</p>
@@ -90,13 +137,12 @@
         </ul>
     </div>
 
-    <img src="simulacion_educativa_ransomware.png" alt="Simulación educativa ransomware">
-
     <div class="disclaimer">
-        <strong>IMPORTANTE:</strong>  
+        <strong>IMPORTANTE:</strong>
         <p>Esta página es solo una simulación educativa. No cifra, recopila ni afecta ningún dato.  
         Diseñada para formación y sensibilización en ciberseguridad.</p>
     </div>
 </div>
+
 </body>
 </html>
